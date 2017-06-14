@@ -9,6 +9,7 @@ import {
 
 import Profile from './Profile';
 import Repositories from './Repositories';
+import Notes from './Notes';
 import github from '../Utils/github';
 
 export default class Dashboard extends Component {
@@ -35,7 +36,19 @@ export default class Dashboard extends Component {
 	}
 
 	goToNotes() {
+		github.getNotes(this.props.userInfo.login)
+			.then((res) => {
+				res = res || {};
 
+				this.props.navigator.push({
+					title: 'Notes',
+					component: Notes,
+					passProps: {
+						userInfo: this.props.userInfo,
+						notes: res
+					}
+				});
+			});
 	}
 
 	makeBackground(btn) {

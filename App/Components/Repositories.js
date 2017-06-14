@@ -9,11 +9,15 @@ import {
 
 import Badge from './Badge';
 import Separator from '../Helpers/Separator';
-
+import CustomWebView from '../Helpers/CustomWebView';
 
 export default class Repositories extends Component {
 	openPage(url) {
-
+		this.props.navigator.push({
+			component: CustomWebView,
+			title: 'Web View',
+			passProps: {url}
+		});
 	}
 
 	render() {

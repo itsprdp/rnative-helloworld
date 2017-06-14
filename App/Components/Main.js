@@ -67,7 +67,8 @@ export default class Main extends Component {
 				<TextInput
 					style={styles.searchInput}
 					value={this.state.userName}
-					onChange={this.handleChange.bind(this)} />
+					onChange={this.handleChange.bind(this)}
+					onSubmitEditing={this.handleSubmit.bind(this)} />
 				<TouchableHighlight
 					style={styles.button}
 					onPress={this.handleSubmit.bind(this)}
